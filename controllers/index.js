@@ -12,6 +12,8 @@ function getDate(what){
 		return day+"/"+month+"/"+year;
 	}
 };
+
+
 // create tab group
 var tabGroup = Titanium.UI.createTabGroup();
 
@@ -40,7 +42,7 @@ var jamatWin = Titanium.UI.createWindow({
 ///////////////// Namaz Times/////////////////////////////
 
 //To make the program work you will need to have added the NamazTimes.sqlite file to Resources/myData
-Ti.Database.install('/myData/NamazTimes.sqlite', 'NamazTimes');
+Ti.Database.install('/NamazTimes.sqlite', 'NamazTimes');
 var db = Ti.Database.open('NamazTimes');
 var dayValues = db.execute('select * from NamazTimes where mes=' + getDate('month') + ' and dia='+getDate('day') + ';');
 
