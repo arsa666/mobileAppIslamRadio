@@ -66,39 +66,89 @@ var date = Ti.UI.createLabel({
 
 var table1 =  Titanium.UI.createTableView({
     data:[
-        {title:"Fajr ............................. " + fajr + " a.m"},
-        {title:"Zohar ............................ " + zohar + " p.m"},
-        {title:"Asar ............................. " + asar + " p.m"},
-        {title:"Magrib ........................... " + magrib + " p.m"},
-        {title:"Isha ............................. " + isha + " p.m"}
+        {title:"Fajr: " + fajr + " a.m",
+        color: '#404040',
+        font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }
+       },
+        {title:"Zohar: " + zohar + " p.m",color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }},
+        {title:"Asar: " + asar + " p.m",color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }},
+        {title:"Magrib: " + magrib + " p.m",color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }},
+        {title:"Isha:  " + isha + " p.m",color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }}
     ]
 });
+
+
 
 namazWin.add(date);
 namazWin.add(table1);
 ////////////////Jamat Times/////////////////////////////////
-var xhr = Ti.Network.createHTTPClient();
+
+var tableJamat =  Titanium.UI.createTableView({});
+refreshJamatTimes();
+var refreshBtn = Titanium.UI.createButton({
+    title:'Refresh',
+    width:300,
+    height:40
+});
+jamatWin.add(refreshBtn);
+jamatWin.add(tableJamat);
+
+refreshBtn.addEventListener('click', function() {
+    refreshJamatTimes();
+});
+
+function refreshJamatTimes() {
+    var xhr = Ti.Network.createHTTPClient();
     xhr.onerror = function(e){
-                  Ti.API.error('Bad Server =>' + e.error);
-         };
+        Ti.API.error('Bad Server =>' + e.error);
+    };
 
     xhr.open('GET', Alloy.Globals.jamatTimes);
     xhr.send();
-
+    tableJamat.setData([]);
     xhr.onload = function(){
-                 response = JSON.parse(this.responseText);
-                var tableJamat =  Titanium.UI.createTableView({
-                    data:[
-                        {title:"Fajr ............................. " + response['fajr'] + " a.m"},
-                        {title:"Zohar ............................ " + response['zohar'] + " p.m"},
-                        {title:"Asar ............................. " + response['asar'] + " p.m"},
-                        {title:"Magrib ........................... " + response['magrib'] + " p.m"},
-                        {title:"Isha ............................. " + response['isha'] + " p.m"}
-                    ]
-                });
+        response = JSON.parse(this.responseText);
+        var data = [
+            {title:"Fajr: " + response['fajr'] + " a.m", color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }},
+            {title:"Zohar: " + response['zohar'] + " p.m", color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }},
+            {title:"Asar: " + response['asar'] + " p.m", color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }},
+            {title:"Magrib: " + response['magrib'] + " p.m", color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }},
+            {title:"Isha: " + response['isha'] + " p.m", color: '#404040',font:{
+            fontSize: '30sp',
+            fontWeight: 'bold'
+        }}
+            ];
+        tableJamat.setData(data);
+    }
+}
 
-                jamatWin.add(tableJamat);
- };
 /////////// Radio//////////////////////////////////////////
 var playButton = Titanium.UI.createButton({
     title:'Play Radio/Iniciar Radio',
