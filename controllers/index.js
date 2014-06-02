@@ -13,7 +13,7 @@ function getDate(what){
 	}
 };
 
-
+var fontSize = '40sp';
 // create tab group
 var tabGroup = Titanium.UI.createTabGroup();
 
@@ -69,24 +69,24 @@ var table1 =  Titanium.UI.createTableView({
         {title:"Fajr: " + fajr + " a.m",
         color: '#404040',
         font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }
        },
         {title:"Zohar: " + zohar + " p.m",color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }},
         {title:"Asar: " + asar + " p.m",color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }},
         {title:"Magrib: " + magrib + " p.m",color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }},
         {title:"Isha:  " + isha + " p.m",color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }}
     ]
@@ -125,23 +125,23 @@ function refreshJamatTimes() {
         response = JSON.parse(this.responseText);
         var data = [
             {title:"Fajr: " + response['fajr'] + " a.m", color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }},
             {title:"Zohar: " + response['zohar'] + " p.m", color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }},
             {title:"Asar: " + response['asar'] + " p.m", color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }},
             {title:"Magrib: " + response['magrib'] + " p.m", color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }},
             {title:"Isha: " + response['isha'] + " p.m", color: '#404040',font:{
-            fontSize: '30sp',
+            fontSize: fontSize,
             fontWeight: 'bold'
         }}
             ];
