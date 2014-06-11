@@ -1,21 +1,10 @@
-//super cholo get Date function
-function getDate(what){
-	var currentTime = new Date();
-	var month = currentTime.getMonth() + 1;
-	var day = currentTime.getDate();
-	var year = currentTime.getFullYear();
- 	if(what === 'month'){
- 		return month;
- 	} else if (what === 'day'){
- 		return day;
- 	} else {
-		return day+"/"+month+"/"+year;
-	}
-};
+Ti.include("common.js");
 
-var fontSize = '40sp';
-// create tab group
 var tabGroup = Titanium.UI.createTabGroup();
+
+
+// create tab group
+
 
 //////////////Windows Creation //////////////////////////////
 var win = Titanium.UI.createWindow({
@@ -61,7 +50,16 @@ db.close();
 var date = Ti.UI.createLabel({
 	color:'#CC9900',
 	text: getDate(),
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    font:{
+        fontFamily:'Verdana',
+        fontWeight:'bold',
+        fontSize:14
+    },
+    shadowColor:'#333',
+    shadowOffset:{x:1,y:1},
+    width:Ti.Platform.displayCaps.platformWidth,
+    height:20
 });
 
 var table1 =  Titanium.UI.createTableView({
@@ -99,7 +97,7 @@ namazWin.add(table1);
 ////////////////Jamat Times/////////////////////////////////
 
 var tableJamat =  Titanium.UI.createTableView({});
-refreshJamatTimes();
+refreshJamatTimes(tableJamat);
 var refreshBtn = Titanium.UI.createButton({
     title:'Refresh',
     width:300,
@@ -109,45 +107,10 @@ jamatWin.add(refreshBtn);
 jamatWin.add(tableJamat);
 
 refreshBtn.addEventListener('click', function() {
-    refreshJamatTimes();
+    refreshJamatTimes(tableJamat);
 });
 
-function refreshJamatTimes() {
-    var xhr = Ti.Network.createHTTPClient();
-    xhr.onerror = function(e){
-        Ti.API.error('Bad Server =>' + e.error);
-    };
 
-    xhr.open('GET', Alloy.Globals.jamatTimes);
-    xhr.send();
-    tableJamat.setData([]);
-    xhr.onload = function(){
-        response = JSON.parse(this.responseText);
-        var data = [
-            {title:"Fajr: " + response['fajr'] + " a.m", color: '#404040',font:{
-            fontSize: fontSize,
-            fontWeight: 'bold'
-        }},
-            {title:"Zohar: " + response['zohar'] + " p.m", color: '#404040',font:{
-            fontSize: fontSize,
-            fontWeight: 'bold'
-        }},
-            {title:"Asar: " + response['asar'] + " p.m", color: '#404040',font:{
-            fontSize: fontSize,
-            fontWeight: 'bold'
-        }},
-            {title:"Magrib: " + response['magrib'] + " p.m", color: '#404040',font:{
-            fontSize: fontSize,
-            fontWeight: 'bold'
-        }},
-            {title:"Isha: " + response['isha'] + " p.m", color: '#404040',font:{
-            fontSize: fontSize,
-            fontWeight: 'bold'
-        }}
-            ];
-        tableJamat.setData(data);
-    }
-}
 
 /////////// Radio//////////////////////////////////////////
 var playButton = Titanium.UI.createButton({
@@ -187,13 +150,24 @@ stopButton.addEventListener('click', function() {
     audioPlayer.stop();
     playButton.enabled = true;
     stopButton.enabled = false;
+    if (Ti.Platform.osname === 'android')
+    {
+        audioPlayer.release();
+    }
 });
 
 webViewButton.addEventListener('click', function() {
-    var webview = Titanium.UI.createWebView({url:'http://107.170.87.104:8000/stream'});
-    var window = Titanium.UI.createWindow();
-    window.add(webview);
-    window.open({modal:true});
+
+    if (Ti.Platform.osname === 'android')
+    {
+        Ti.Platform.openURL(Alloy.Globals.mp3Url);
+    } else {
+        var webview = Titanium.UI.createWebView({url:Alloy.Globals.mp3Url});
+        var window = Titanium.UI.createWindow();
+        window.add(webview);
+        window.open({modal:true});
+    }
+
 });
 
 audioPlayer.addEventListener('progress',function(e) {
