@@ -1,9 +1,9 @@
-Ti.include("common.js");
-Ti.include("namazTab.js");
-Ti.include("jamatTab.js");
-Ti.include("radioTab.js");
+var namaz = require("namazTab");
+var jamat = require("jamatTab");
+var radio = require("radioTab");
 var tabGroup = Titanium.UI.createTabGroup();
-tabGroup.addTab(getNamazTab());
-tabGroup.addTab(getJamatTab());
-tabGroup.addTab(getRadioTab());
+tabGroup.addTab(namaz.getNamazTab);
+tabGroup.addTab(jamat.getjamatTab);
+tabGroup.addTab(radio.getRadioTab);
+
 tabGroup.open();
