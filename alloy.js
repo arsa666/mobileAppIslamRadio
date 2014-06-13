@@ -7,8 +7,7 @@
 // make available throughout your app. You can easily make things
 // accessible globally by attaching them to the `Alloy.Globals`
 // object. For example:
-//
-// Alloy.Globals.someGlobalFunction = function(){};
+//mkjim,l.;lpo-00009987768888888888886// Alloy.Globals.someGlobalFunction = function(){};
 
 
 //ONLY FOR HARDCODED URLS.
