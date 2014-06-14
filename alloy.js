@@ -13,3 +13,4 @@
 //ONLY FOR HARDCODED URLS.
 Alloy.Globals.jamatTimes = 'http://107.170.87.104/islamApi/jamatTimes.php';
 Alloy.Globals.mp3Url = 'http://107.170.87.104:8000/stream';
+Alloy.Globals.serverStatus = 'http://107.170.87.104:8000/status.xsl';
