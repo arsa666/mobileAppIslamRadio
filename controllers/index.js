@@ -6,4 +6,4 @@ tabGroup.addTab(radio.getRadioTab);
 tabGroup.addTab(namaz.getNamazTab);
 tabGroup.addTab(jamat.getjamatTab);
 tabGroup.open();
-Ti.UI.setBackgroundImage( '/images/background.jpg' );
+Ti.UI.setBackgroundImage( '/images/background.png' );
