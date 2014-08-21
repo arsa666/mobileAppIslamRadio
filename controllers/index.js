@@ -11,6 +11,7 @@ var deviceToken;
 
 if (Ti.Platform.name == 'android') {
 var CloudPush = require('ti.cloudpush');
+ // These events monitor incoming push notifications
 
     CloudPush.retrieveDeviceToken({
         success : function deviceTokenSuccess(e) {
@@ -20,6 +21,12 @@ var CloudPush = require('ti.cloudpush');
             subscribeError(e);
         }
     });
+    CloudPush.addEventListener('callback', function (evt) {
+        var and = JSON.parse(evt.payload);
+        alert(and['android']['alert']);
+    });
+    CloudPush.showTrayNotificationsWhenFocused = true;
+
 } else {
     Ti.Network.registerForPushNotifications({
         // Specifies which notifications to receive
@@ -34,7 +41,16 @@ var CloudPush = require('ti.cloudpush');
         error: function deviceTokenError(e) {
             subscribeError(e);
         }
+        // callback: function (e) {
+        //     var msg = JSON.parse(e.data);
+        //     if (msg) {
+        //         alert(msg);
+        //     }
+        // }
     });
+
+
+
 }
 
 function subscribeToChannel (e) {
