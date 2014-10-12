@@ -1,8 +1,31 @@
-".container": {
-	backgroundColor:"white"
-},
+"Window": {
+    backgroundColor: "#fff"
+}
+
 "Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000"
+    width: Ti.UI.SIZE,
+    height: Ti.UI.SIZE,
+    color: "#000",
+    font: {
+        fontSize: 20,
+        fontFamily: 'Helvetica Neue'
+    },
+    textAlign: 'center'
 } 
+
+"#salat": {
+    backgroundImage:'images/jamaat.jpg'
+} 
+
+
+".salatLabel": {
+    color: "#FFF",
+    width: Ti.UI.SIZE,
+    height: Ti.UI.SIZE,
+    font: {
+        fontSize: 20,
+        fontFamily: 'Helvetica Neue'
+    },
+    textAlign: 'center',
+    layout: 'vertical'
+}

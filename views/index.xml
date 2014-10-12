@@ -1,5 +1,25 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label">Islam Panama Radio</Label>
-	</Window>
+    <TabGroup>
+        <Tab title="Salat" icon="KS_nav_ui.png">
+            <Window title="Salat" id="salat">
+               <Label class='salatLabel'>Fajar: </Label>
+                <Label class='salatLabel'>Zohar: </Label>
+                <Label class='salatLabel'>Asar: </Label>
+                <Label class='salatLabel'>Magrib: </Label>
+                <Label class='salatLabel'>Isha: </Label>
+                <Button class='searchSalat' onClick='searchSalat' title='Actualizar'/>
+
+            </Window>
+        </Tab>
+        <Tab title="JAMA" icon="KS_nav_ui.png">
+            <Window title="JAMA">
+                <Label>I am Window JAMA</Label>
+            </Window>
+        </Tab>
+        <Tab title="COLON" icon="KS_nav_views.png">
+            <Window title="COLON">
+                <Label>I am Window COLON</Label>
+            </Window>
+        </Tab>
+    </TabGroup>
 </Alloy>
