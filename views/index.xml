@@ -2,18 +2,24 @@
     <TabGroup>
         <Tab title="Salat" icon="KS_nav_ui.png">
             <Window title="Salat" id="salat" layout='vertical'>
-               <Label class='salatLabel'>Fajar: </Label>
-                <Label class='salatLabel'>Zohar: </Label>
-                <Label class='salatLabel'>Asar: </Label>
-                <Label class='salatLabel'>Magrib: </Label>
-                <Label class='salatLabel'>Isha: </Label>
-                <Button class='searchSalat' onClick='searchSalat' title='Actualizar'/>
+                <Label class='salatLabelFecha' id='salatDia'>Dia...</Label>
+                <Label class='salatLabelFecha' id='salatMes'>Mes...</Label>
+                <Label class='salatHorarioLabel'>Salat/ Jammat</Label>
+                <Label class='salatLabel' id='salatFajr'>Fajr... </Label>
+                <Label class='salatLabel' id='salatZohar'>Zohar... </Label>
+                <Label class='salatLabel' id='salatAsar'>Asar... </Label>
+                <Label class='salatLabel' id='salatMagrib'>Magrib... </Label>
+                <Label class='salatLabel' id='salatIsha'>Isha... </Label>
+                <Button class='btn' onClick='searchSalat' title='Actualizar'/>
 
             </Window>
         </Tab>
         <Tab title="JAMA" icon="KS_nav_ui.png">
-            <Window title="JAMA">
-                <Label>I am Window JAMA</Label>
+            <Window title="JAMA" id='jamaWin' layout='vertical'>
+                <Button class='btnRadio' id='jamaRadioOn' onClick='jamaRadioOn' title='Radio ON'/>
+                <Button class='btnRadioStop' id='jamaRadioOff' onClick='jamaRadioOff' title='Radio OFF'/>
+                <Label class='labelStatus' id='radioStatus'>Apagado.</Label>
+
             </Window>
         </Tab>
         <Tab title="COLON" icon="KS_nav_views.png">
