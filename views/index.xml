@@ -1,7 +1,7 @@
 <Alloy>
     <TabGroup>
         <Tab title="Salat" icon="KS_nav_ui.png">
-            <Window title="Salat" id="salat">
+            <Window title="Salat" id="salat" layout='vertical'>
                <Label class='salatLabel'>Fajar: </Label>
                 <Label class='salatLabel'>Zohar: </Label>
                 <Label class='salatLabel'>Asar: </Label>

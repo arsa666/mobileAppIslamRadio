@@ -23,9 +23,8 @@
     width: Ti.UI.SIZE,
     height: Ti.UI.SIZE,
     font: {
-        fontSize: 20,
+        fontSize: 25,
         fontFamily: 'Helvetica Neue'
     },
     textAlign: 'center',
-    layout: 'vertical'
 }
