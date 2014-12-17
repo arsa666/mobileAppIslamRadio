@@ -8,7 +8,11 @@
 }
 
 "#jamaWin": {
-     backgroundImage:'images/background.jpg',
+    backgroundImage:'images/background.jpg',
+}
+
+"#colonWin": {
+    backgroundImage:'images/colon.png',
 }
 
 ".btn": {

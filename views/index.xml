@@ -1,6 +1,6 @@
 <Alloy>
-    <TabGroup>
-        <Tab title="Salat" icon="KS_nav_ui.png">
+    <TabGroup >
+        <Tab title="Salat" icon="KS_nav_ui.png" id='tabSalat'>
             <Window title="Salat" id="salat" layout='vertical'>
                 <Label class='salatLabelFecha' id='salatDia'>Dia...</Label>
                 <Label class='salatLabelFecha' id='salatMes'>Mes...</Label>
@@ -16,15 +16,27 @@
         </Tab>
         <Tab title="JAMA" icon="KS_nav_ui.png">
             <Window title="JAMA" id='jamaWin' layout='vertical'>
+                <Button class='btn' onClick='openWeb' title='WEB'/>
                 <Button class='btnRadio' id='jamaRadioOn' onClick='jamaRadioOn' title='Radio ON'/>
                 <Button class='btnRadioStop' id='jamaRadioOff' onClick='jamaRadioOff' title='Radio OFF'/>
                 <Label class='labelStatus' id='radioStatus'>Apagado.</Label>
-
             </Window>
         </Tab>
         <Tab title="COLON" icon="KS_nav_views.png">
-            <Window title="COLON">
-                <Label>I am Window COLON</Label>
+            <Window title="COLON" id='colonWin' layout='vertical'>
+            
+               <Button class='btnRadio' id='colonRadioOn' onClick='colonRadioOn' title='Español'/>
+               <Button class='btnRadio' id='colonRadioArabeOn' onClick='colonRadioArabeOn' title='Arabe'/>
+               <Button class='btnRadioStop' id='colonRadioOff' onClick='colonRadioOff' title='Radio OFF'/>
+               <Label class='labelStatus' id='radioStatusColon'>Apagado.</Label>
+            </Window>
+        </Tab>
+        <Tab title="MENU" icon="KS_nav_views.png"  id='setSwitchState'>
+            <Window title="Notificaciones" id='menu' layout='vertical'>
+               <Label class='salatLabelFecha'>Jama Alert:</Label>
+                <Switch id="jamaSwitch" onChange="switchJamaNotifications"/>
+                <Label class='salatLabelFecha'>Colon Alert:</Label>
+               <Switch id="colonSwitch" onChange="switchColonNotifications"/>
             </Window>
         </Tab>
     </TabGroup>
