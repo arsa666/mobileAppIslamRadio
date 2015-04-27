@@ -2,42 +2,58 @@
     <TabGroup >
         <Tab title="Salat" icon="KS_nav_ui.png" id='tabSalat'>
             <Window title="Salat" id="salat" layout='vertical'>
-                <Label class='salatLabelFecha' id='salatDia'>Dia...</Label>
-                <Label class='salatLabelFecha' id='salatMes'>Mes...</Label>
-                <Label class='salatHorarioLabel'>Salat/ Jammat</Label>
-                <Label class='salatLabel' id='salatFajr'>Fajr... </Label>
-                <Label class='salatLabel' id='salatZohar'>Zohar... </Label>
-                <Label class='salatLabel' id='salatAsar'>Asar... </Label>
-                <Label class='salatLabel' id='salatMagrib'>Magrib... </Label>
-                <Label class='salatLabel' id='salatIsha'>Isha... </Label>
-                <Button class='btn' onClick='searchSalat' title='Actualizar'/>
+                <ScrollView layout='vertical' showVerticalScrollIndicator="true" height="100%" top='0'>
+                    <Label class='salatLabelFecha' id='salatDia'>Dia...</Label>
+                    <Label class='salatLabelFecha' id='salatMes'>Mes...</Label>
+                    <Label class='salatHorarioLabel'>Salat/ Jammat</Label>
+                    <Label class='salatLabel' id='salatFajr'>Fajr... </Label>
+                    <Label class='salatLabel' id='salidaSol'>Salida Sol... </Label>
+                    <Label class='salatLabel' id='salatZohar'>Zohar... </Label>
+                    <Label class='salatLabel' id='salatAsar'>Asar... </Label>
+                    <Label class='salatLabel' id='salatMagrib'>Magrib... </Label>
+                    <Label class='salatLabel' id='salatIsha'>Isha... </Label>
+                    <Button class='btn' onClick='searchSalat' title='Actualizar'/>
+                </ScrollView>
+            </Window>
+        </Tab>
+         <Tab title="Duas" icon="KS_nav_ui.png" id='tabDuas'>
+            <Window title="Duas" id="duas" layout='vertical'>
+            	<Button class='btn' onClick='searchDuas' title='Actualizar'/>
+            	<ScrollView layout='vertical' id="duaScrollView" showVerticalScrollIndicator="true" height="80%" top='0'>
+                    <!-- <Button class='btn' id='yaseen' onClick='loadDua' title='Yaseen'/>
+                    <Button class='btn' id='surah_18_al_kahf' onClick='loadDua' title='Surah Al Kahf'/> -->
 
+        		</ScrollView>
             </Window>
         </Tab>
         <Tab title="JAMA" icon="KS_nav_ui.png">
             <Window title="JAMA" id='jamaWin' layout='vertical'>
-                <Button class='btn' onClick='openWeb' title='WEB'/>
-                <Button class='btnRadio' id='jamaRadioOn' onClick='jamaRadioOn' title='Radio ON'/>
-                <Button class='btnRadioStop' id='jamaRadioOff' onClick='jamaRadioOff' title='Radio OFF'/>
-                <Label class='labelStatus' id='radioStatus'>Apagado.</Label>
+                <ScrollView layout='vertical' showVerticalScrollIndicator="true" height="100%" top='0'>
+                    <Button class='btn' onClick='openWeb' title='WEB'/>
+                    <Button class='btnRadio' id='jamaRadioOn' onClick='jamaRadioOn' title='Radio ON'/>
+                    <Button class='btnRadioStop' id='jamaRadioOff' onClick='jamaRadioOff' title='Radio OFF'/>
+                    <Label class='labelStatus' id='radioStatus'>Apagado.</Label>
+                </ScrollView>                
             </Window>
         </Tab>
         <Tab title="COLON" icon="KS_nav_views.png">
             <Window title="COLON" id='colonWin' layout='vertical'>
-            
-               <Button class='btnRadio' id='colonRadioOn' onClick='colonRadioOn' title='Español'/>
-               <Button class='btnRadio' id='colonRadioArabeOn' onClick='colonRadioArabeOn' title='Arabe'/>
-               <Button class='btnRadioStop' id='colonRadioOff' onClick='colonRadioOff' title='Radio OFF'/>
-               <Label class='labelStatus' id='radioStatusColon'>Apagado.</Label>
+                <ScrollView layout='vertical' showVerticalScrollIndicator="true" height="100%" top='0'>
+                   <Button class='btnRadio' id='colonRadioOn' onClick='colonRadioOn' title='Español'/>
+                   <Button class='btnRadio' id='colonRadioArabeOn' onClick='colonRadioArabeOn' title='Arabe'/>
+                   <Button class='btnRadioStop' id='colonRadioOff' onClick='colonRadioOff' title='Radio OFF'/>
+                   <Label class='labelStatus' id='radioStatusColon'>Apagado.</Label>
+                </ScrollView>
             </Window>
         </Tab>
-        <Tab title="MENU" icon="KS_nav_views.png"  id='setSwitchState'>
+        <!-- <Tab title="MENU" icon="KS_nav_views.png"  id='setSwitchState'>
             <Window title="Notificaciones" id='menu' layout='vertical'>
+
                <Label class='salatLabelFecha'>Jama Alert:</Label>
                 <Switch id="jamaSwitch" onChange="switchJamaNotifications"/>
                 <Label class='salatLabelFecha'>Colon Alert:</Label>
                <Switch id="colonSwitch" onChange="switchColonNotifications"/>
             </Window>
-        </Tab>
-    </TabGroup>
+        </Tab> -->
+    </TabGroup> 
 </Alloy>

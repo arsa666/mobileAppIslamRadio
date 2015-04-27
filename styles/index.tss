@@ -1,19 +1,26 @@
 "Window": {
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    orientationModes: [Titanium.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 }
 
 
 "#salat": {
+    backgroundImage:'images/wazu.jpg'
+}
+
+"#duas": {
     backgroundImage:'images/madinaMasgid.jpg'
 }
 
 "#jamaWin": {
-    backgroundImage:'images/background.jpg',
+    backgroundImage:'images/jumma_masjid.JPG',
 }
 
 "#colonWin": {
     backgroundImage:'images/colon.png',
 }
+
+
 
 ".btn": {
     borderRadius:25,
@@ -30,7 +37,7 @@
         fontFamily: 'Helvetica Neue'
     },
     disabledColor:'#787878',
-    top:5,
+    top:5
 }
 
 ".btnRadio": {
@@ -108,10 +115,10 @@
         fontWeight: 'bold',
         fontFamily: 'Helvetica Neue'
     },
-    shadowColor:'#fff',
-    shadowOffset:{x:3,y:3},
     textAlign: 'center',
-    top: 5
+    top: 5,
+    shadowColor : '#FFF',
+    shadowOffset: {x:3, y:3},
 }
 
 ".labelStatus": {
